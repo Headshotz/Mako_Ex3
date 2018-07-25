@@ -434,18 +434,12 @@ end
 function SetupStage()
 	if GAMEMODE.MKStageNumber==0 then
 		GAMEMODE.KatanaDamageNum = 100
-		GAMEMODE:SetWaveOneZombies(0.2)
 		ForceEnableKatanaEx1()
-		GAMEMODE:AddBoss("Bahamut", "bahamut", "bahamut_vida")
 	elseif GAMEMODE.MKStageNumber==1 then
 		GAMEMODE.KatanaDamageNum = 100
-		GAMEMODE:SetWaveOneZombies(0.25)
-		GAMEMODE:AddBoss("Bahamut", "bahamut", "bahamut_vida")
 	elseif GAMEMODE.MKStageNumber==2 then
 		GAMEMODE.KatanaDamageNum = 45
-		GAMEMODE:SetWaveOneZombies(0.25)
 		GAMEMODE:CenterNotify(COLOR_CYAN,"EXTREME 3")
-		GAMEMODE:AddBoss("Ex Bahamut", "bahamut", "bahamut_vida")
 
 		for _, ent in pairs(ents.GetAll()) do
 			if ent:GetName()=="pieza_b2" then
@@ -482,7 +476,7 @@ end
 sound.Add( {
 	name = "NewMusic1.Mako",
 	channel = CHAN_STATIC,
-	volume = 1.0,
+	volume = 0.4,
 	level = 100,
 	pitch = 100,
 	sound = "mako/ext3_music_1.mp3"
@@ -491,7 +485,7 @@ sound.Add( {
 sound.Add( {
 	name = "NewMusic2.Mako",
 	channel = CHAN_STATIC,
-	volume = 1.0,
+	volume = 0.4,
 	level = 100,
 	pitch = 100,
 	sound = "mako/ext3_music_2.mp3"
