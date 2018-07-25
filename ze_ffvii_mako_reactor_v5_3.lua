@@ -602,7 +602,7 @@ function OnceBladeEx3()
 		end
 	end
 
-	GAMEMODE:SendMapMessage("The bridge will start a rotate in 30 seconds!") 
+	GAMEMODE:CenterNotify({font = "CloseCaption_Bold"}, "", COLOR_YELLOW, "The bridge will start a rotate in 30 seconds!")
 	timer.Simple( 30, function() GAMEMODE.StartBridgeRotate = true end)
 end
 
