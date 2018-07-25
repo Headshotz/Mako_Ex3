@@ -242,14 +242,12 @@ hook.Add( "PlayerUse", "PlayerUse.SkipToNumStage", function( ply, ent )
 		GAMEMODE.SkipToEx3 = true
 		GAMEMODE.MKStageNumber = 2
 
-		timer.SimpleEx(5, hook.Call, "PreRestartRound", GAMEMODE)
-		timer.SimpleEx(8, hook.Call, "RestartRound", GAMEMODE)
+		timer.Simple(5, function() gamemode.Call("EndRound", TEAM_UNDEAD) end)
 	elseif ent:IsValid() and ply:IsValid() and ent:GetClass() == "func_button" and ent:GetKeyValues()["hammerid"] == 140676 and not ent.SkipToEx2 then
 		ent.SkipToEx2 = true
 		GAMEMODE.MKStageNumber = 1
 
-		timer.SimpleEx(5, hook.Call, "PreRestartRound", GAMEMODE)
-		timer.SimpleEx(8, hook.Call, "RestartRound", GAMEMODE)		
+		timer.Simple(5, function() gamemode.Call("EndRound", TEAM_UNDEAD) end)		
 	end
 end)
 
