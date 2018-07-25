@@ -812,18 +812,8 @@ function RemoveElevatorFloor()
 	end
 end
 
-function EarthFixCollision()
-	for _, ent in pairs(ents.FindByName("mt")) do 
-		ent:SetCustomGroupAndFlags(ZS_COLLISIONGROUP_DEPLOYABLE_TURRET, ZS_COLLISIONGROUP_ALL)
-	end
-end
-
 hook.Add("AcceptInput", "StuffMako", function( ent, input, activator, caller, value )
 	local classname = ent:GetClass()
-
-	if ent:GetName()=="crear_tierra1" and classname == "env_entity_maker" and input== "ForceSpawn" then
-		timer.Simple( 0.5, EarthFixCollision)
-	end
 
 	if ent:GetName()=="bahamut_s1" and classname == "ambient_generic" and input== "PlaySound" and caller:GetName() == "bahamut_vida" then
 		if GAMEMODE.MKStageNumber==2 then
