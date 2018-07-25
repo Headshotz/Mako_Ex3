@@ -241,24 +241,15 @@ hook.Add( "PlayerUse", "PlayerUse.SkipToNumStage", function( ply, ent )
 	if ent:IsValid() and ply:IsValid() and ent:GetClass() == "func_button" and ent:GetName() == "kill_all_button" and not GAMEMODE.SkipToEx3 then
 		GAMEMODE.SkipToEx3 = true
 		GAMEMODE.MKStageNumber = 2
-		GAMEMODE:ZESetNumberOfRounds(1)
 
 		timer.SimpleEx(5, hook.Call, "PreRestartRound", GAMEMODE)
 		timer.SimpleEx(8, hook.Call, "RestartRound", GAMEMODE)
-		for i=1, 5 do
-			GAMEMODE:SendMapMessage(">>>>>>>> ADMIN : SKIP TO EXTREME 3 IS STARTING!!!!!!")
-		end
 	elseif ent:IsValid() and ply:IsValid() and ent:GetClass() == "func_button" and ent:GetKeyValues()["hammerid"] == 140676 and not ent.SkipToEx2 then
 		ent.SkipToEx2 = true
 		GAMEMODE.MKStageNumber = 1
-		GAMEMODE:ZESetNumberOfRounds(2)
 
 		timer.SimpleEx(5, hook.Call, "PreRestartRound", GAMEMODE)
-		timer.SimpleEx(8, hook.Call, "RestartRound", GAMEMODE)
-
-		for i=1, 5 do
-			GAMEMODE:SendMapMessage(">>>>>>>> ADMIN : SKIP TO EXTREME 2 IS STARTING!!!!!!")
-		end		
+		timer.SimpleEx(8, hook.Call, "RestartRound", GAMEMODE)		
 	end
 end)
 
